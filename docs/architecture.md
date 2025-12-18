@@ -3,6 +3,10 @@
 Copiez ce fichier et ouvrez-le avec l'extension **Markdown Preview Enhanced** (ou n'importe quelle extension Mermaid compatible) dans VS Code pour l'aperçu et l'export.
 
 ```mermaid
+
+Copiez ce fichier et ouvrez-le avec une extension Mermaid-compatible dans VS Code pour aperçu et export.
+
+```mermaid
 flowchart LR
   subgraph Repo [Repository: backend-terraform]
     direction TB
@@ -37,6 +41,6 @@ flowchart LR
 ---
 
 Usage rapide dans VS Code:
-- Installer l'extension `Markdown Preview Enhanced` (shd101wyy.markdown-preview-enhanced).
-- Ouvrir `docs/architecture.md` et lancer `Markdown Preview Enhanced: Open Preview to the Side` depuis la palette de commandes.
-- Pour exporter en PNG/SVG: `Markdown Preview Enhanced: Export (PNG)` ou `Export (SVG)`.
+- Installez une extension Mermaid/Markdown (ex. `Markdown Preview Enhanced`).
+- Ouvrez `docs/architecture.md` et lancez la prévisualisation.
+- Exports : utilisez l'option d'export fournie par l'extension (PNG/SVG).
