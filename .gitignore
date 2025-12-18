@@ -4,3 +4,13 @@ terraform.tfstate.backup
 *.tfvars.json
 .terraform/
 providers.tf
+
+
+# Self-hosted GitHub Actions runner files — do NOT commit
+/actions-runner/
+actions-runner/_work/
+actions-runner/_diag/
+actions-runner/.credentials
+*.service
+*.token
+*.runner
