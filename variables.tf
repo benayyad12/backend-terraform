@@ -19,3 +19,15 @@ variable "region"{
   description = "aws region"
   default = "eu-west-3"
 }
+
+variable "pay_mode" {
+  type        = string
+  description = "Billing mode for DynamoDB table (e.g. PAY_PER_REQUEST)"
+  default     = "PAY_PER_REQUEST"
+}
+
+variable "hkey" {
+  type        = string
+  description = "Attribute to use as the hash (partition) key for DynamoDB"
+  default     = "LockID"
+}
