@@ -4,42 +4,34 @@ Copiez ce fichier et ouvrez-le avec l'extension **Markdown Preview Enhanced** (o
 
 ```mermaid
 flowchart LR
-  subgraph Repo["Repository: backend-terraform"]
+  subgraph Repo [Repository: backend-terraform]
     direction TB
-    Root[main.tf (root module)]
+    Root[main.tf\n(root module)]
     Root --> M_s3[modules/s3]
     Root --> M_dynamodb[modules/dynamodb]
-    Examples[examples/basic<br/>README.md]
+    Examples[examples/basic\nREADME.md]
   end
 
-  subgraph AWS["AWS"]
+  subgraph AWS [AWS]
     direction TB
-    S3[S3 Bucket<br/>(tfstate)]
-    DDB[DynamoDB Table<br/>(state lock)]
+    S3[S3 Bucket\n(tfstate)]
+    DDB[DynamoDB Table\n(state lock)]
   end
 
-  subgraph CI["GitHub Actions"]
+  subgraph CI [GitHub Actions]
     direction TB
-    Workflow[.github/workflows/terraform.yml<br/>(fmt / init / validate)]
-    Runner[self-hosted runner<br/>(actions-runner)]
+    Workflow[.github/workflows/terraform.yml\n(fmt / init / validate)]
+    Runner[self-hosted runner\n(actions-runner)]
   end
 
-  M_s3 -->|crée| S3
-  M_dynamodb -->|crée| DDB
-
-  Workflow -->|s'exécute sur| Runner
-  Runner -->|exécute| Workflow
-  Workflow -->|commande| Fmt["terraform fmt -check -recursive"]
-  Workflow -->|commande| Validate["terraform init -backend=false && terraform validate"]
-
+  M_s3 -->|creates| S3
+  M_dynamodb -->|creates| DDB
+  Workflow -->|runs on| Runner
+  Runner -->|executes| Workflow
+  Workflow -->|command| Fmt[terraform fmt -check\n-recursive]
+  Workflow -->|command| Validate[terraform init\n-backend=false && terraform validate]
   Repo -->|module source| Workflow
-  Repo -->|exemple d'usage| Examples
-
-  classDef aws fill:#f8f0e3,stroke:#d6a33a;
-  class S3,DDB aws;
-  classDef repo fill:#eef6ff,stroke:#4a90e2;
-  class Repo,Root,Examples repo;
-  class CI,Workflow,Runner repo;
+  Repo -->|usage example| Examples
 ```
 
 ---
